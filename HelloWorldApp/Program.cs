@@ -31,6 +31,8 @@ namespace HelloWorldApp
             Console.WriteLine("Please enter your age:");
             string usersAge;
             usersAge = Console.ReadLine();
+            usersAge = usersAge + 100;
+            //Rezultāts ir teksta string
             Console.WriteLine("Your age is " + usersAge);
             Console.ReadLine();
         }
