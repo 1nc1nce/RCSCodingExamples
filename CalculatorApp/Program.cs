@@ -69,7 +69,7 @@ namespace CalculatorApp
             // TryParse: ja izdodas saparsēt, atgriež True, ja neizdodas - False; out - atgriež rezultātu, var atgriezt vairāk vērtību
             bool parseWasSuccess = double.TryParse(textInput, out parsedNumber);
             //if izpildīsies, ja parseWasSuccess=True
-            if (parseWasSuccess == false)
+            if (parseWasSuccess == false) //Tas pats: if (!parseWasSuccess)
             {
                 // "\" eskeipo nākamo simbolu
                 Console.WriteLine("Slikti ievadīts skaitlis \"" + textInput + "\"");
