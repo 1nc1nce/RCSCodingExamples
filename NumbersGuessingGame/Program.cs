@@ -76,20 +76,28 @@ namespace NumbersGuessingGame
 
             for (int tryCount = 1; tryCount < 4 && !hasUserWon; tryCount = tryCount + 1)
             {
-                Console.WriteLine("Mēģinājums # " + tryCount + " Atmini skaitli!");
+                Console.WriteLine("Mēģinājums #" + tryCount);
                 int userInput = int.Parse(Console.ReadLine());
                 if (userInput == numberToGuess)
                 {
                     Console.WriteLine("Apsveicu! Tu atminēji skaitli!");
                     hasUserWon = true;
                 }
-                else if (userInput < numberToGuess)
+                else if (userInput < numberToGuess || userInput > numberToGuess)
                 {
-                    Console.WriteLine("Tev jāatmin lielāks skaitlis!");
-                }
-                else
-                {
-                    Console.WriteLine("Tev jāatmin mazāks skaitlis!");
+                    if (tryCount == 3)
+                    {
+                        Console.WriteLine("Tu zaudēji! Tev bija jāatmin skaitlis '" + numberToGuess+ "'");
+                        break;
+                    }
+                    else if (userInput < numberToGuess)
+                    {
+                        Console.WriteLine("Tev jāatmin lielāks skaitlis!");    
+                    }
+                    else
+                    {
+                        Console.WriteLine("Tev jāatmin mazāks skaitlis!");
+                    }
                 }
             }
         }
