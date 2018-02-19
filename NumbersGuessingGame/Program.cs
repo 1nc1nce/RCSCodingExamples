@@ -85,7 +85,7 @@ namespace NumbersGuessingGame
                 }
                 else if (userInput < numberToGuess || userInput > numberToGuess)
                 {
-                    if (tryCount == 3)
+                    if (tryCount == 3) // if (!hasUserWon)
                     {
                         Console.WriteLine("Tu zaudēji! Tev bija jāatmin skaitlis '" + numberToGuess+ "'");
                         break;

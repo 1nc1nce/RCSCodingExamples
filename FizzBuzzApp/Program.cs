@@ -20,8 +20,8 @@ namespace FizzBuzzApp
             */
 
             Console.WriteLine("Ievadi skaitli!");
-            long usersInput = long.Parse(Console.ReadLine());
-            for (long number = 1; number <= usersInput; number++)
+            ulong usersInput = ulong.Parse(Console.ReadLine());
+            for (ulong number = 1; number <= usersInput; number++)
             {
                 if (number % 3 == 0 && number % 5 == 0)
                 {
