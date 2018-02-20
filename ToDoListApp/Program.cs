@@ -17,9 +17,12 @@ namespace ToDoListApp
                 Console.WriteLine("d - Dzēst visus ierakstus!");
                 Console.WriteLine("f - Saglabāt Todo sarakstu failā!");
                 Console.WriteLine("g - Ielādēt Todo sarakstu no faila!");
+                Console.WriteLine("h - Atzīmēt uzdevumu kā izdarītu!");
                 string usersInput = Console.ReadLine();
                 switch (usersInput)
                 {
+                    // Ja lietotājs ievadīs 'add' vai 'a', izpildīsies nosacījums.
+                    case "add": 
                     case "a":
                         //Pievienot jaunu darāmo lietu
                         Console.WriteLine("Ievadi darāmo lietu!");
@@ -49,6 +52,13 @@ namespace ToDoListApp
                     case "g":
                         //Ielādēt no faila
                         list.LoadFromFile();
+                        break;
+                    case "h":
+                        //Atzīmēt uzdevumu kā pabeigtu
+                        Console.WriteLine("Ievadi uzdevuma numuru, ko esi paveicis!");
+                        list.ShowAllTodos();
+                        int doneTodoIndex = int.Parse(Console.ReadLine());
+                        list.MarkTodoCompleted(doneTodoIndex - 1);
                         break;
                 }
             }
