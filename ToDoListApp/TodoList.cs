@@ -40,6 +40,7 @@ namespace ToDoListApp
                     //Izvelkam pirmo lietu no saraksta, izmantojot indeksatoru
                     //Programmēšanā skaitīšana sākas no nulles!!! Ja sarakstā ir 11 elementi, tad lai izvilktu pēdējo, janorāda index == 10
                     Console.Write((i + 1) + ". " + todoEntries[i].Name); // [] - indeksators
+                    // Izveidojam loģiku, kas parāda tikai neizdarītos uzdevumus
                     if (todoEntries[i].IsCompleted)
                     {
                         Console.Write(" - Done"); // Console.Write izvada tekstu bez pāriešanas uz jaunu rindu == bez enter
@@ -89,7 +90,10 @@ namespace ToDoListApp
             {
                 return;
             }
+
             string[] allLinesFromFile = File.ReadAllLines(pathToTodoListFile); //string[] <-- masīvs
+            // Iztīrīt sarakstu, lai, atkārtoti ielādējot, sarakstam nepievienotu tos pašu ierakstus
+            todoEntries.Clear();
             /*
             foreach (string listEntry in allLinesFromFile)
             {
@@ -104,6 +108,7 @@ namespace ToDoListApp
                 todoEntries.Add(fileTodo);
             }
             */
+
             for (var index = 0; index < allLinesFromFile.Length; index +=2)
             {
                 string listEntry = allLinesFromFile[index];
@@ -113,8 +118,7 @@ namespace ToDoListApp
                 todoEntries.Add(fileTodo);
             }
         }
-
-        //4) Pievienojam izdarīšanas atzīmi(TaskHasBeenDone) -- līdzīga dzēšanas funckijai
+        // Pievienojam izdarīšanas atzīmi(TaskHasBeenDone) -- līdzīga dzēšanas funckijai
         public void MarkTodoCompleted(int doneTodoIndex)
         {
             if (doneTodoIndex > todoEntries.Count)
@@ -136,7 +140,5 @@ namespace ToDoListApp
             Console.WriteLine("Uzdevums izpildīts!");
             Console.WriteLine();
         }
-
-        //5) Izveidojam loģiku, kas parāda tikai neizdarītos uzdevumus
     }
 }

@@ -46,7 +46,7 @@ namespace ToDoListApp
                         break;
                         //Lai orientētos kodā un atrastu konkrētu funkciju, uzkliko uz funkcijas + F12
                     case "f":
-                        //Saglabāt Todo sarakstu failā
+                        //Saglabāt TodoList  failā
                         list.SaveToFile();
                         break;
                     case "g":
@@ -59,6 +59,9 @@ namespace ToDoListApp
                         list.ShowAllTodos();
                         int doneTodoIndex = int.Parse(Console.ReadLine());
                         list.MarkTodoCompleted(doneTodoIndex - 1);
+                        break;
+                    default:
+                        Console.Write("Neatpazīta komanda!\r\n");
                         break;
                 }
             }
