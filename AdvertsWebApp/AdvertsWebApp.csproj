@@ -15,4 +15,7 @@
   <ItemGroup>
     <Compile Remove="Controllers\EmptyClass.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\Advert.html" />
+  </ItemGroup>
 </Project>
