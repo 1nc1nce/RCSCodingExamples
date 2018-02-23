@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model AdvertsWebApp.Models.Advert
+<h2>Izveidot sludinājumu:</h2>
+
+@using (Html.BeginForm())
+{
+<div>
+    <label>Sludinājuma nosaukums:</label>
+    @Html.EditorFor(model => model.Name) <!-- Input lauks htmlā -->
+</div>
+<div>
+    <label>Sludinājuma teksts:</label>
+    @Html.EditorFor(model => model.AdvertText)
+</div>
+<div>
+    <label>Sludinājuma cena:</label>
+    @Html.EditorFor(model => model.Price)
+</div>
+<input type="submit" value="Saglabāt sludinājumu" />
+}

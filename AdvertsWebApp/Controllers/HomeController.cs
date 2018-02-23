@@ -70,5 +70,15 @@ namespace AdvertsWebApp.Controllers
             }
             return View();
         }
+        public IActionResult CreateAdvert()
+        {
+            return View();
+        }
+        [HttpPost] //Norāda, ka f-ja būs POST, savādāk by default f-jai ir GET metode. F-ja saņem datus no formas, ko aizpilda lietotājs.
+        public IActionResult CreateAdvert(Advert advert)
+        {
+            adverts.Add(advert);
+            return RedirectToAction("Index");
+        }
     }
 }

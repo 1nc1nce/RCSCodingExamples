@@ -1,10 +1,11 @@
-﻿<!-- Šājā vietā norāda, kāds modelis tiks izmantots, kad mēģinās uzģenerēt -->
+﻿<!-- Šājā vietā norāda, kāds modelis tiks izmantots, kad mēģinās uzģenerēt, ja dati ir dinamiski, nevis hardcoded -->
 <!-- Ar at izsauc C# kodu -->
 
 @model List<AdvertsWebApp.Models.Advert>
 
 @foreach(var ad in Model)
 {
-<p>@ad.Name - @ad.AdvertText (@ad.Price EUR)</p> <a href="/Home/Advert?advertId=@ad.AdvertID">Atvērt sludinājumu</a>
+<p><a href="/Home/Advert?advertId=@ad.AdvertID">@ad.Name - @ad.AdvertText (@ad.Price EUR)</a></p> 
 <!-- aiz '?' sākas funkcijai iedotie parametri -->
 }
+@Html.ActionLink("Pievienot jaunu sludinājumu", "CreateAdvert")
